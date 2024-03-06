@@ -31,12 +31,14 @@ const images = [
 const myCarouselImages = document.querySelector('.my-carousel-images');
 const myThumbnails = document.querySelector('.my-thumbnails');
 
+
 // CREO IL MIO CONTATORE PER L'INDICE
 let c = 0;
 
 // RESET
 myCarouselImages.innerHTML = '';
 myThumbnails.innerHTML = '';
+
 
 // CREO LE IMG
 images.forEach((elemento, indice) =>{
@@ -66,6 +68,7 @@ myThumbnails.innerHTML += `
 `;
 
 images.forEach((elemento, indice) =>{
+
     myThumbnails.innerHTML += `
     <div class="my-thumbnail">
         <img class="img-fluid" src="${elemento.url}" alt="Thumbnail of ${elemento.title} picture">
@@ -108,6 +111,34 @@ previous.addEventListener('click',function(){
     myThumbnail[c].classList.add('active');
 });
 
+// BONUS 1
+const arrayThumb = document.querySelectorAll('.my-thumbnail');
+
+
+arrayThumb.forEach((elemento, indice)=>{
+    console.log(indice);
+
+    elemento.addEventListener('click', () =>{
+        console.log('ciao');
+        myCarouselItem[c].classList.remove('active');
+        myThumbnail[c].classList.remove('active');
+        c = indice;
+        myCarouselItem[c].classList.add('active');
+        myThumbnail[c].classList.add('active');
+    });
+    console.log(elemento);
+});
+
+function autoPlay(){
+    myCarouselItem[c].classList.remove('active');
+    myThumbnail[c].classList.remove('active');
+    c++;
+    if(c > myCarouselItem.length - 1){
+        c = 0;
+    }
+    myCarouselItem[c].classList.add('active');
+    myThumbnail[c].classList.add('active');
+}setInterval(autoPlay, 3000);
 
 
 
