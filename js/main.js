@@ -80,5 +80,34 @@ myCarouselItem[c].classList.add('active');
 const myThumbnail = document.getElementsByClassName('my-thumbnail');
 myThumbnail[c].classList.add('active');
 
+// BTN 
+const next = document.querySelector('.my-next');
+const previous = document.querySelector('.my-previous');
+
+
+next.addEventListener('click',function(){
+
+    myCarouselItem[c].classList.remove('active');
+    myThumbnail[c].classList.remove('active');
+    c++;
+    if(c > myCarouselItem.length - 1){
+        c = 0;
+    }
+    myCarouselItem[c].classList.add('active');
+    myThumbnail[c].classList.add('active');
+});
+
+previous.addEventListener('click',function(){
+    myCarouselItem[c].classList.remove('active');
+    myThumbnail[c].classList.remove('active');
+    c--;
+    if(c < 0){
+        c = myCarouselItem.length - 1;
+    }
+    myCarouselItem[c].classList.add('active');
+    myThumbnail[c].classList.add('active');
+});
+
+
 
 
