@@ -34,6 +34,8 @@ const myThumbnails = document.querySelector('.my-thumbnails');
 
 // CREO IL MIO CONTATORE PER L'INDICE
 let c = 0;
+// SET DIREZIONE AUTOPLAY
+let direzione = true;
 
 // RESET
 myCarouselImages.innerHTML = '';
@@ -129,12 +131,23 @@ arrayThumb.forEach((elemento, indice)=>{
     console.log(elemento);
 });
 
+// FUNZIONE AUTOPLAY
 function autoPlay(){
     myCarouselItem[c].classList.remove('active');
     myThumbnail[c].classList.remove('active');
-    c++;
+    console.log(direzione);
+    if(direzione){
+        c++;
+    }else{
+        c--;
+    }
+    
+
     if(c > myCarouselItem.length - 1){
         c = 0;
+    }
+    if(c < 0){
+        c = myCarouselItem.length - 1;
     }
     myCarouselItem[c].classList.add('active');
     myThumbnail[c].classList.add('active');
