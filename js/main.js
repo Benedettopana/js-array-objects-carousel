@@ -117,12 +117,11 @@ previous.addEventListener('click',function(){
 // BONUS 1
 const arrayThumb = document.querySelectorAll('.my-thumbnail');
 
-
 arrayThumb.forEach((elemento, indice)=>{
     console.log(indice);
 
     elemento.addEventListener('click', () =>{
-        console.log('ciao');
+        
         myCarouselItem[c].classList.remove('active');
         myThumbnail[c].classList.remove('active');
         c = indice;
@@ -157,7 +156,6 @@ function autoPlay(){
 
 btnDirection.innerHTML += `
     <div class="btn btn-danger d-flexmy-after-carousel align-content-center  w-25"> Direzione </div>
-
 `;
 
 btnDirection.addEventListener('click', ()=>{
