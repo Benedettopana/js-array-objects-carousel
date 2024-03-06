@@ -30,6 +30,7 @@ const images = [
 
 const myCarouselImages = document.querySelector('.my-carousel-images');
 const myThumbnails = document.querySelector('.my-thumbnails');
+const btnDirection = document.getElementById('my-after-carousel');
 
 
 // CREO IL MIO CONTATORE PER L'INDICE
@@ -151,7 +152,15 @@ function autoPlay(){
     }
     myCarouselItem[c].classList.add('active');
     myThumbnail[c].classList.add('active');
-}setInterval(autoPlay, 3000);
+}setInterval(autoPlay, 1000);
 
 
+btnDirection.innerHTML += `
+    <div class="btn btn-danger d-flexmy-after-carousel align-content-center  w-25"> Direzione </div>
 
+`;
+
+btnDirection.addEventListener('click', ()=>{
+    if(direzione) direzione = false;
+    else direzione = true;
+})
