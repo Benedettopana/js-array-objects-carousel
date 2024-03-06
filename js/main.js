@@ -121,12 +121,13 @@ arrayThumb.forEach((elemento, indice)=>{
     console.log(indice);
 
     elemento.addEventListener('click', () =>{
-        
+        clearInterval(autoPlay);
         myCarouselItem[c].classList.remove('active');
         myThumbnail[c].classList.remove('active');
         c = indice;
         myCarouselItem[c].classList.add('active');
         myThumbnail[c].classList.add('active');
+        setInterval(autoPlay, 2500);
     });
     console.log(elemento);
 });
