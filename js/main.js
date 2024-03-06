@@ -28,3 +28,57 @@ const images = [
     },
 ];
 
+const myCarouselImages = document.querySelector('.my-carousel-images');
+const myThumbnails = document.querySelector('.my-thumbnails');
+
+// CREO IL MIO CONTATORE PER L'INDICE
+let c = 0;
+
+// RESET
+myCarouselImages.innerHTML = '';
+myThumbnails.innerHTML = '';
+
+// CREO LE IMG
+images.forEach((elemento, indice) =>{
+    console.log(indice);
+    myCarouselImages.innerHTML += `
+    <div class="my-carousel-item">
+        <img class="img-fluid" src="${elemento.url}" alt="${elemento.title} picture">
+        <div class="item-description px-3">
+            <h2>${elemento.title}</h2>
+            <p>${elemento.description}</p>
+        </div>
+    </div>
+    `;
+});
+// CREO LA THUMBNAIL
+// pulsante back
+myThumbnails.innerHTML += `
+    <div class="my-previous position-absolute">
+        <span class="my-prev-hook"></span>
+    </div>
+`;
+// pulsante next
+myThumbnails.innerHTML += `
+    <div class="my-next position-absolute">
+        <span class="my-next-hook"></span>
+    </div>
+`;
+
+images.forEach((elemento, indice) =>{
+    myThumbnails.innerHTML += `
+    <div class="my-thumbnail">
+        <img class="img-fluid" src="${elemento.url}" alt="Thumbnail of ${elemento.title} picture">
+    </div>
+
+    `;
+});
+
+// RENDO IL PRIMO ELEMENTO DELL'ARRAY ACTIVE
+const myCarouselItem = document.getElementsByClassName('my-carousel-item');
+myCarouselItem[c].classList.add('active');
+const myThumbnail = document.getElementsByClassName('my-thumbnail');
+myThumbnail[c].classList.add('active');
+
+
+
