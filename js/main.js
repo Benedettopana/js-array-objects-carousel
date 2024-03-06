@@ -151,7 +151,7 @@ function autoPlay(){
     }
     myCarouselItem[c].classList.add('active');
     myThumbnail[c].classList.add('active');
-}setInterval(autoPlay, 1000);
+}setInterval(autoPlay, 2500);
 
 
 btnDirection.innerHTML += `
